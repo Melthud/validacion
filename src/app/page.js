@@ -14,10 +14,8 @@ export default function Home() {
     e.preventDefault();
     setError(""); // Resetear error
     try {
-      const apiUrl = process.env.NODE_ENV === 'production' ? 'https://validacion-beta.vercel.app/api/validar' : '/api/validar';
-      const res = await fetch(`${apiUrl}?cedula=${cedula}`);
-
       
+      const res = await fetch(`/api/validar?cedula=${cedula}`);
      
       if (!res.ok) {
         throw new Error("Cédula no encontrada");

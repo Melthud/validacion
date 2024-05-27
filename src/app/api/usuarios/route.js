@@ -1,4 +1,4 @@
-"use client";
+
 import { query } from '../../../lib/db';
 
 async function GET(req) {
