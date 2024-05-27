@@ -16,6 +16,9 @@ export default function Home() {
     try {
       const res = await fetch(`/api/validar?cedula=${cedula}`);
       if (!res.ok) {
+        throw new Error(`Error: ${res.status} ${res.statusText}`);
+      }
+      if (!res.ok) {
         throw new Error("Cédula no encontrada");
       }
       const data = await res.json();
