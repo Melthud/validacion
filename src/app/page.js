@@ -15,14 +15,14 @@ export default function Home() {
     setError(""); // Resetear error
     try {
       
-      const res = await fetch(`/api/validar?cedula=${cedula}`);
+      const res = await fetch(`https://validacion-beta.vercel.app/api/validar?cedula=${cedula}`);
      
       if (!res.ok) {
         throw new Error("Cédula no encontrada");
       }
       const data = await res.json();
       if (data.exists) {
-        router.push(`/validacion?cedula=${cedula}`);
+        router.push(`https://validacion-beta.vercel.app/validacion?cedula=${cedula}`);
       } else {
         setError("Cédula no encontrada");
       }
